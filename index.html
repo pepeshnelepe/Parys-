@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Экипаж | Парусная Школа 2026</title>
+<style>
+    /* МОРСКАЯ СТИЛИЗАЦИЯ (ЦВЕТА И ШРИФТЫ) */
+    body {
+        background-color: #0b1d3a; /* Цвет глубокого моря */
+        color: #f0f5fa;            /* Морская пена */
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* ШАПКА САЙТА И МЕНЮ */
+    header {
+        background-color: #071328;
+        padding: 20px;
+        text-align: center;
+        border-bottom: 4px solid #d4af37; /* Золотой кант (акцент) */
+    }
+
+    header h1 {
+        margin: 0 0 15px 0;
+        color: #e2f0fd;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+
+    .nav-menu {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .nav-btn {
+        background-color: #112d56;
+        color: #ffffff;
+        border: 2px solid #d4af37;
+        padding: 10px 20px;
+        font-size: 16px;
+        font-weight: bold;
+        border-radius: 20px; /* Округлые кнопки */
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .nav-btn.active, .nav-btn:hover {
+        background-color: #d4af37;
+        color: #0b1d3a;
+    }
+
+    /* СТРАНИЦЫ */
+    .container {
+        padding: 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .page {
+        display: none; /* Прячем все страницы */
+    }
+
+    .page.active {
+        display: block; /* Показываем активную */
+    }
+
+    /* ПЕРВАЯ СТРАНИЦА: О ЛАГЕРЕ */
+    .about-box {
+        background-color: #112d56;
+        padding: 25px;
+        border-radius: 12px;
+        border-left: 6px solid #d4af37;
+        margin-bottom: 20px;
+    }
+
+    .about-box h2 {
+        color: #d4af37;
+        margin-top: 0;
+    }
+
+    /* ВТОРАЯ СТРАНИЦА: СЕТКА ДЛЯ СУДОВОГО ЖУРНАЛА (25 РАМОК) */
+    .crew-grid {
+        display: flex;
+        flex-wrap: wrap; /* Перенос карточек на новые строки */
+        gap: 20px;
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+    /* КАРТОЧКА МАТРОСА / ОФИЦЕРА */
+    .crew-card {
+        background-color: #16396d;
+        border: 2px solid #d4af37;
+        border-radius: 10px;
+        width: 200px; /* Фиксированная ширина рамки */
+        padding: 15px;
+        text-align: center;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    }
+
+    /* РАМКА ДЛЯ ФОТОГРАФИИ */
+    .photo-frame {
+        width: 140px;
+        height: 160px;
+        background-color: #0b1d3a;
+        margin: 0 auto 12px auto;
+        border: 2px dashed #9cbcdb; /* Штриховая рамка для будущего фото */
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #9cbcdb;
+        font-size: 13px;
+    }
+
+    /* ТЕКСТ ВНУТРИ КАРТОЧКИ */
+    .crew-name {
+        font-size: 16px;
+        font-weight: bold;
+        color: #ffffff;
+        margin: 5px 0;
+        border-bottom: 1px solid #3a68a5;
+        padding-bottom: 5px;
+    }
+
+    .crew-role {
+        font-size: 14px;
+        color: #d4af37; /* Золотой цвет для должности */
+        margin: 5px 0 0 0;
+        font-style: italic;
+    }
+</style>
+</head>
+<body>
+
+    <header>
+        <h1>⚓ Парусная Школа FunKids</h1>
+        <div class="nav-menu">
+            <button class="nav-btn active" data-target="about-page">О Лагере</button>
+            <button class="nav-btn" data-target="crew-page">Экипаж (25 мест)</button>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <!-- СТРАНИЦА 1: О ЛАГЕРЕ -->
+        <section id="about-page" class="page active">
+            <div class="about-box">
+                <h2>Вторая смена 2026 года</h2>
+                <p>Добро пожаловать на борт! Наш отряд <strong>"Отважный"</strong> проводит незабываемые дни на проекте <strong>«Парусная школа»</strong> от <strong>FunKids</strong>.</p>
+                <p>Здесь, на бескрайних водных просторах, мы не просто отдыхаем, а превращаемся в настоящих капитанов парусных катамаранов. Каждый день наполнен вайбом парусного дела, практикой на воде, командной работой. Ветер в парусах, солнце и верные друзья — это наше лето 2026!</p>
+            </div>
+            <div class="about-box">
+                <h2>Наш девиз</h2>
+                <p style="font-size: 20px; font-style: italic; text-align: center; color: #d4af37;">
+                    "Юность время отваги!"
+                </p>
+            </div>
+        </section>
+
+        <!-- СТРАНИЦА 2: НАШ ОТРЯД (25 КАРТОЧЕК ВРУЧНУЮ) -->
+        <section id="crew-page" class="page">
+            <h2 style="text-align: center; color: #d4af37;">Судовой журнал экипажа</h2>
+            
+            <div class="crew-grid">
+                
+                <!-- Человек 1 -->
+                <div class="crew-card">
+                    <div class="photo-frame">Место для фото</div>
+                    <div class="crew-name">Татьяна</div>
+                    <div class="crew-role">Вожатый</div>
+                </div>
+
+                <!-- Человек 2 -->
+                <div class="crew-card">
+                    <div class="photo-frame">Место для фото</div>
+                    <div class="crew-name">Анастасия</div>
+                    <div class="crew-role">Вожатый</div>
+                </div>
+
+                <!-- Человек 3 -->
+                <div class="crew-card">
+                    <div class="photo-frame">Место для фото</div>
+                    <div class="crew-name">Семён</div>
+                    <div class="crew-role">Командир отряда</div>
+                </div>
+
+                <!-- Человек 4 -->
+                <div class="crew-card">
+                    <div class="photo-frame">Место для фото</div>
+                    <div class="crew-name">Ольга</div>
+                    <div class="crew-role">Первый заместитель командира отряда</div>
+                </div>
+
+                <!-- Человек 5 -->
+                <div class="crew-card">
+                    <div class="photo-frame">Место для фото</div>
+                    <div class="crew-name">Никита</div>
+                    <div class="crew-role">Второй заместитель командира отряда</div>
+                </div>
+
+                <!-- Человек 6 -->
+                <div class="crew-card">
+                    <div class="photo-frame">Место для фото</div>
+                    <div class="crew-name">Дарья</div>
+                    <div class="crew-role">Участница</div>
+                </div>
+
+                <!-- Человек 7 -->
+                <div class="crew-card">
+                    <div class="photo-frame">Место для фото</div>
+                    <div class="crew-name">Виталий</div>
+                    <div class="crew-role">Участник</div>
+                </div>
+
+                <!-- Человек 8 -->
+                <div class="crew-card">
+                    <div class="photo-frame">Место для фото</div>
+                    <div class="crew-name">Никита</div>
+                    <div class="crew-role">Участник</div>
+                </div>
+
+                <!-- Человек 9 -->
+                <div class="crew-card">
+                    <div class="photo-frame">Место для фото</div>
+                    <div class="crew-name">Елизавета</div>
+                    <div class="crew-role">Участница</div>
+                </div>
+
+                <!-- Человек 10 -->
+                <div class="crew-card">
+                    <div class="photo-frame">Место для фото</div>
+                    <div class="crew-name">Света</div>
+                    <div class="crew-role">Участница</div>
+                </div>
+
+                <!-- Человек 11 -->
+                <div class="crew-card">
+                    <div class="photo-frame">Место для фото</div>
+                    <div class="crew-name">Кира</div>
+                    <div class="crew-role">Участница</div>
+                </div>
+
+                <!-- Человек 12 -->
+                <div class="crew-card">
+                    <div class="photo-frame">Место для фото</div>
+                    <div class="crew-name">Даниил</div>
+                    <div class="crew-role">Участник</div>
+                </div>
+
+                <!-- Человек 13 -->
+                <div class="crew-card">
+                    <div class="photo-frame">Место для фото</div>
+                    <div class="crew-name">Дарьяна</div>
+                    <div class="crew-role">Участница</div>
+                </div>
+
+                <!-- Человек 14 -->
+                <div class="crew-card">
+                    <div class="photo-frame">Место для фото</div>
+                    <div class="crew-name">Илья</div>
+                    <div class="crew-role">Участник</div>
+                </div>
+
+                <!-- Человек 15 -->
+                <div class="crew-card">
+                    <div class="photo-frame">Место для фото</div>
+                    <div class="crew-name">Роман</div>
+                    <div class="crew-role">Участник</div>
+                </div>
+
+                <!-- Человек 16 -->
+                <div class="crew-card">
+                    <div class="photo-frame">Место для фото</div>
+                    <div class="crew-name">Александра</div>
+                    <div class="crew-role">Участница</div>
+                </div>
+
+                <!-- Человек 17 -->
+                <div class="crew-card">
+                    <div class="photo-frame">Место для фото</div>
+                    <div class="crew-name">Денис</div>
+                    <div class="crew-role">Участник</div>
+                </div>
+
+                <!-- Человек 18 -->
+                <div class="crew-card">
+                    <div class="photo-frame">Место для фото</div>
+                    <div class="crew-name">Элина</div>
+                    <div class="crew-role">Участница</div>
+                </div>
+
+                <!-- Человек 19 -->
+                <div class="crew-card">
+                    <div class="photo-frame">Место для фото</div>
+                    <div class="crew-name">Вика</div>
+                    <div class="crew-role">Участница</div>
+                </div>
+
+                <!-- Человек 20 -->
+                <div class="crew-card">
+                    <div class="photo-frame">Место для фото</div>
+                    <div class="crew-name">Лиза</div>
+                    <div class="crew-role">Участница</div>
+                </div>
+
+                <!-- Человек 21 -->
+                <div class="crew-card">
+                    <div class="photo-frame">Место для фото</div>
+                    <div class="crew-name">Вика</div>
+                    <div class="crew-role">Участница</div>
+                </div>
+
+                <!-- Человек 22 -->
+                <div class="crew-card">
+                    <div class="photo-frame">Место для фото</div>
+                    <div class="crew-name">Имя Фамилия 22</div>
+                    <div class="crew-role">Должность</div>
+                </div>
+
+                <!-- Человек 23 -->
+                <div class="crew-card">
+                    <div class="photo-frame">Место для фото</div>
+                    <div class="crew-name">Карина</div>
+                    <div class="crew-role">Участница</div>
+                </div>
+
+                <!-- Человек 24 -->
+                <div class="crew-card">
+                    <div class="photo-frame">Место для фото</div>
+                    <div class="crew-name">Соня</div>
+                    <div class="crew-role">Участница</div>
+                </div>
+
+                <!-- Человек 25 -->
+                <div class="crew-card">
+                    <div class="photo-frame">Место для фото</div>
+                    <div class="crew-name">Дарья</div>
+                    <div class="crew-role">Участница</div>
+                </div>
+
+            </div>
+        </section>
+
+    </div>
+
+<script>
+    /* МИНИМАЛЬНЫЙ СКРИПТ ТОЛЬКО ДЛЯ ПЕРЕКЛЮЧЕНИЯ ВКЛАДОК */
+    const buttons = document.querySelectorAll('.nav-btn');
+    const pages = document.querySelectorAll('.page');
+
+    buttons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            buttons.forEach(b => b.classList.remove('active'));
+            pages.forEach(p => p.classList.remove('active'));
+
+            btn.classList.add('active');
+            const targetId = btn.getAttribute('data-target');
+            document.getElementById(targetId).classList.add('active');
+        });
+    });
+</script>
+</body>
+</html>
